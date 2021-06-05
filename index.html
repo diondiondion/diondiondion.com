@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dion Dajka – UI Engineer from Berlin</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			html {
+				--lemon: #ffff00;
+				--lime: #00ff7e;
+				--green: #11d700;
+				--pink: #ec008c;
+				--cyan: #00d2ff;
+				--blue: #0070ff;
+				--eggshell: #fffbeb;
+
+				--text: black;
+				--background: var(--eggshell);
+				--highlight1: var(--lemon);
+				--highlight2: var(--pink);
+				--highlight3: var(--cyan);
+				--highlight4: var(--blue);
+
+				color: var(--text);
+				background-color: var(--background);
+
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+					Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+					'Helvetica Neue', sans-serif;
+				font-size: 20px;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				html {
+					--eggshell: #f7f0d5;
+					--text: var(--eggshell);
+					--background: black;
+					--highlight1: var(--pink);
+					--highlight2: var(--cyan);
+					--highlight3: var(--lime);
+					--highlight4: var(--green);
+				}
+			}
+
+			html,
+			body {
+				height: 100%;
+				margin: 0;
+			}
+
+			body {
+				display: grid;
+				place-items: center;
+				grid-template-rows: 5fr 1fr;
+				padding: 3rem;
+			}
+
+			a:link {
+				color: inherit;
+			}
+			a:visited {
+				color: inherit;
+			}
+
+			.logo-mask {
+				position: absolute;
+			}
+
+			.logos {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 0.8rem 0.2rem;
+			}
+
+			.logo-background {
+				fill: var(--text);
+			}
+
+			.wave {
+				stroke: var(--highlight1);
+				stroke-width: 5px;
+				stroke-linecap: round;
+			}
+
+			.bubble {
+				fill: var(--highlight2);
+			}
+
+			.shape {
+				transform-box: fill-box;
+				transform-origin: top center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="logos" id="logos">
+			<svg
+				width="0"
+				height="0"
+				viewBox="0 0 275 100"
+				class="logo-mask"
+				role="presentation"
+			>
+				<defs>
+					<clipPath id="dion-text">
+						<path
+							d="M53.21,40.46H53a26.41,26.41,0,0,0-7.5-5.86,24.21,24.21,0,0,0-11.84-2.67,27.87,27.87,0,0,0-21.82,9.93,32.9,32.9,0,0,0-6,10.62,38.3,38.3,0,0,0-2.1,12.66,39.87,39.87,0,0,0,2,12.72,32.54,32.54,0,0,0,5.92,10.76,29.26,29.26,0,0,0,9.47,7.44,28.2,28.2,0,0,0,12.73,2.8,28.35,28.35,0,0,0,12-2.61,19.83,19.83,0,0,0,8.72-7.44h.25v8.27H74.07V.89H53.21ZM53,71.25A16.69,16.69,0,0,1,50,76.46a15,15,0,0,1-4.77,3.69,13.93,13.93,0,0,1-6.36,1.4,14.25,14.25,0,0,1-6.49-1.4,14.43,14.43,0,0,1-4.71-3.69,15.55,15.55,0,0,1-2.86-5.27,19.7,19.7,0,0,1-.95-6,19.08,19.08,0,0,1,.95-6,14.63,14.63,0,0,1,7.57-8.78A14.39,14.39,0,0,1,38.83,49a14.06,14.06,0,0,1,6.36,1.4A15.13,15.13,0,0,1,50,54.07,16.85,16.85,0,0,1,53,59.29a17.1,17.1,0,0,1,0,12Z"
+						/>
+						<rect
+							x="90.87"
+							y="33.71"
+							width="20.87"
+							height="63.36"
+						/>
+						<path
+							d="M109.76,5.34A11.82,11.82,0,0,0,106,2.92,12.52,12.52,0,0,0,101.3,2a11.5,11.5,0,0,0-4.71,1,13.54,13.54,0,0,0-3.81,2.48,10.4,10.4,0,0,0-2.55,3.62,11.22,11.22,0,0,0-.89,4.39,10.91,10.91,0,0,0,3.44,8.08,11.67,11.67,0,0,0,8.52,3.37A12.33,12.33,0,0,0,106,24a11.41,11.41,0,0,0,6.36-6,10.87,10.87,0,0,0,1-4.52,10.85,10.85,0,0,0-1-4.51A11.77,11.77,0,0,0,109.76,5.34Z"
+						/>
+						<path
+							d="M185,40.58A33.63,33.63,0,0,0,173.83,34a41.44,41.44,0,0,0-27.17,0,32.9,32.9,0,0,0-11.2,6.61,31.61,31.61,0,0,0-7.57,10.56,34,34,0,0,0-2.8,14,34.33,34.33,0,0,0,2.8,14.06,32.05,32.05,0,0,0,7.57,10.69,34.18,34.18,0,0,0,11.2,6.81,39.49,39.49,0,0,0,27.17,0A35,35,0,0,0,185,89.89a31.53,31.53,0,0,0,7.64-10.69,34.33,34.33,0,0,0,2.8-14.06,34,34,0,0,0-2.8-14A31.11,31.11,0,0,0,185,40.58ZM174.4,71.12a16.49,16.49,0,0,1-2.86,5.28,15.07,15.07,0,0,1-17.69,3.75,14,14,0,0,1-4.71-3.75,16.3,16.3,0,0,1-2.86-5.28,19.11,19.11,0,0,1,0-12,15.38,15.38,0,0,1,2.8-5.15,14.23,14.23,0,0,1,4.64-3.63,15.74,15.74,0,0,1,13,0A14.84,14.84,0,0,1,171.41,54a15.82,15.82,0,0,1,2.92,5.15,18.07,18.07,0,0,1,1,6A19.33,19.33,0,0,1,174.4,71.12Z"
+						/>
+						<path
+							d="M270.08,48.47a23.33,23.33,0,0,0-3.95-8.33A20.7,20.7,0,0,0,259,34.22a23.57,23.57,0,0,0-10.82-2.29,21.37,21.37,0,0,0-6.23.89,27.15,27.15,0,0,0-5.41,2.29,18.15,18.15,0,0,0-4.33,3.37,21.61,21.61,0,0,0-3,4h-.25V33.71H208.69V97.08h21V62.72a18.72,18.72,0,0,1,.7-5.15,13.74,13.74,0,0,1,2.1-4.39,9.9,9.9,0,0,1,3.5-3,10.56,10.56,0,0,1,4.9-1.08,9.08,9.08,0,0,1,4.64,1.08,7.59,7.59,0,0,1,2.86,2.93,14.08,14.08,0,0,1,1.47,4.26,28.71,28.71,0,0,1,.44,5.09V97.08h21V57.89A38,38,0,0,0,270.08,48.47Z"
+						/>
+					</clipPath>
+					<filter
+						id="blur"
+						filterUnits="userSpaceOnUse"
+						color-interpolation-filters="sRGB"
+					>
+						<feGaussianBlur stdDeviation="7"></feGaussianBlur>
+					</filter>
+				</defs>
+			</svg>
+			<svg width="275" height="100" viewBox="0 0 275 100">
+				<title>dion</title>
+				<g clip-path="url(#dion-text)">
+					<rect width="100%" height="100%" class="logo-background" />
+					<rect
+						id="windowRect"
+						width="100%"
+						height="100%"
+						fill="pink"
+						fill-opacity="0.4"
+						stroke="pink"
+						stroke-width="2"
+						visibility="hidden"
+					/>
+					<path id="wavePath" d="" fill="none" class="wave" />
+				</g>
+			</svg>
+			<svg width="275" height="100" viewBox="0 0 275 100">
+				<title>dion</title>
+				<g clip-path="url(#dion-text)">
+					<rect width="100%" height="100%" class="logo-background" />
+					<g id="bubbles"></g>
+				</g>
+			</svg>
+			<svg width="275" height="100" viewBox="0 0 275 100">
+				<title>dion</title>
+				<g clip-path="url(#dion-text)">
+					<rect width="100%" height="100%" class="logo-background" />
+					<g id="shapes"></g>
+				</g>
+			</svg>
+		</div>
+
+		<div>
+			<a href="mailto:mail@diondiondion.com">Email</a> &middot;
+			<a href="https://github.com/diondiondion">Code</a> &middot;
+			<a href="https://medienwirksam.de/artist/dion">Beats</a>
+		</div>
+
+		<script>
+			// SETUP
+
+			/**
+			 * TO DO:
+			 *
+			 * - Dark mode
+			 * - Bubble animation
+			 * - Shade animation
+			 * - Contact info/links
+			 */
+
+			const hasReducedMotion = window.matchMedia(
+				'(prefers-reduced-motion: reduce)'
+			).matches;
+
+			const DEBUG = false;
+			const X_RANGE = 275;
+			const Y_RANGE = 100;
+			const SINE_Y_RANGE = 60;
+			const MID_Y = 66;
+			const MID_X = round(X_RANGE / 2, 0);
+			const MIN_FREQ = 0.5;
+			const MAX_FREQ = 8;
+			const BUBBLE_MIN_RADIUS = 8;
+			const BUBBLE_MAX_RADIUS = 25;
+			const paddingFromEdges = 5;
+			const MAGIC_FREQ_SCALING_NUMBER = X_RANGE / (2 * Math.PI);
+
+			let amplitude = 1;
+			let frequency = (MAX_FREQ - MIN_FREQ) / 2;
+
+			const logoContainer = document.getElementById('logos');
+			const wavePath = document.getElementById('wavePath');
+			let slider;
+			let debugReadout;
+
+			if (DEBUG) {
+				debugReadout = document.createElement('div');
+				debugReadout.setAttribute('id', 'debugReadout');
+				insertAfter(debugReadout, logoContainer);
+
+				slider = document.createElement('input');
+				slider.setAttribute('type', 'range');
+				slider.setAttribute('min', MIN_FREQ);
+				slider.setAttribute('max', MAX_FREQ);
+				slider.setAttribute('step', 0.001);
+				slider.setAttribute('style', 'width: 80%');
+				slider.value = frequency;
+				slider.addEventListener('input', (event) => {
+					frequency = event.target.value;
+				});
+				insertAfter(slider, logoContainer);
+
+				const windowRect = document.getElementById('windowRect');
+				windowRect.setAttribute('visibility', 'visible');
+			}
+
+			// UTILS
+
+			function createSvgElement(elName) {
+				return document.createElementNS(
+					'http://www.w3.org/2000/svg',
+					elName
+				);
+			}
+
+			function insertAfter(newNode, referenceNode) {
+				referenceNode.parentNode.insertBefore(
+					newNode,
+					referenceNode.nextSibling
+				);
+			}
+
+			function getPathFromCoords(coords) {
+				return 'M' + coords.map((pair) => pair.join(',')).join(' L');
+			}
+
+			function easeInOutQuad(x) {
+				return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+			}
+
+			function easeOut(x) {
+				return 1 - (1 - x) ** 2;
+			}
+
+			/**
+			 * A modulo function that works with negative numbers
+			 */
+			function modulo(num, max) {
+				return num >= 0 ? num % max : ((num % max) + max) % max;
+			}
+
+			/**
+			 * Rounds the first parameter to the number
+			 * of decimals passed as the second parameter
+			 */
+			function round(num, places = 2) {
+				const x = Math.pow(10, places);
+				return Math.round(num * x) / x;
+			}
+
+			/**
+			 * Returns a random number between the passed min & max values
+			 */
+			function random(min, max) {
+				return Math.random() * (max - min) + min;
+			}
+
+			function randomInt(min, max) {
+				return round(random(min, max), 0);
+			}
+
+			/**
+			 * mix:
+			 * Given a range (first two parameters) and a progress value
+			 * between 0 and 1, return the value at the given progress
+			 * value within the range.
+			 *
+			 * Examples:
+			 * progress(10, 20, 0)   === 10
+			 * progress(10, 20, 0.5) === 15
+			 * progress(10, 20, 1)   === 20
+			 */
+			function mix(from, to, progress) {
+				return -progress * from + progress * to + from;
+			}
+
+			/**
+			 * interpolate:
+			 * Map ranges (passed as arrays) to each other.
+			 * Returns a function that will take a value from the first range
+			 * and return the corresponding value from the second range.
+			 */
+			function interpolate(inputRange, outputRange) {
+				const [from, to] = inputRange;
+				const [outFrom, outTo] = outputRange;
+
+				return (value) => {
+					const progress = value / (to - from);
+					return mix(outFrom, outTo, progress);
+				};
+			}
+
+			/**
+			 * Returns the lowest multiple of the first passed number
+			 * that is greater than the second passed number
+			 */
+			function getLowestMultiple(base, min) {
+				const rest = min % base;
+				return min + base - rest;
+			}
+
+			/**
+			 * Create an animator function that mutates a value on each frame.
+			 *
+			 * @param {Function} onUpdate - Function to run on each frame.
+			 * Receives a value and returns an updated value
+			 * @param {any} initialValue - Value that the function is
+			 * initialised with
+			 */
+			function getAnimator({
+				onUpdate = (v) => v + 1,
+				initialValue = 0,
+			} = {}) {
+				return function animate(callback) {
+					let value = initialValue;
+
+					function runAnimationLoop(currentTime) {
+						callback(value, currentTime);
+						value = onUpdate(value, currentTime);
+						requestAnimationFrame(runAnimationLoop);
+					}
+
+					requestAnimationFrame(runAnimationLoop);
+				};
+			}
+
+			/**
+			 * Create an animator function that mutates a value from a start
+			 * value to an end value over a specified duration (in ms).
+			 * An easing function can be provided, too.
+			 *
+			 * @param {object} options
+			 * @param {number} options.from - The initial value
+			 * @param {number} options.to - The starting value
+			 * @param {number} options.duration - Time in ms to complete the animation
+			 * @param {Function} options.ease - Timing function to use
+			 *
+			 * @returns {Function} - Animator function called with the current
+			 * value and the progress of the animation as a fraction
+			 */
+			function getDurationAnimator({
+				from = 0,
+				to = 1,
+				duration,
+				ease = easeInOutQuad,
+			}) {
+				return function animate(callback) {
+					const startTime = performance.now();
+
+					function runAnimationLoop(currentTime) {
+						const elapsedTime = currentTime - startTime;
+						const progress = elapsedTime / duration;
+						const easedProgress = ease(progress);
+						const value = mix(from, to, easedProgress);
+
+						callback(value, progress);
+
+						if (progress < 1) {
+							requestAnimationFrame(runAnimationLoop);
+						}
+					}
+
+					requestAnimationFrame(runAnimationLoop);
+				};
+			}
+
+			/**
+			 * Creates an animator function that gradually changes a
+			 * value from a random starting point to a random end point
+			 * within an allowed range (min/max parameters).
+			 */
+			function getRandomShiftAnimator(min, max) {
+				return (callback) => {
+					let startingPoint;
+					function animate() {
+						const duration = random(3000, 5000);
+						const from = startingPoint || random(min, max);
+						const to = random(min, max);
+
+						getDurationAnimator({
+							duration,
+							from,
+							to,
+						})((value, progress) => {
+							if (progress < 1) {
+								callback(value, progress);
+							} else {
+								startingPoint = to;
+								setTimeout(animate, randomInt(100, 2000));
+							}
+						});
+					}
+					animate();
+				};
+			}
+
+			// RENDER SINE WAVE
+
+			const xPoints = [];
+			for (let i = 0; i <= X_RANGE; i++) {
+				xPoints.push(i);
+			}
+
+			function getSinePoint({x, time, frequency = 1, amplitude = 1}) {
+				const paddingFromEdges = 10;
+				const amp = (SINE_Y_RANGE / 2 - paddingFromEdges) * amplitude;
+				const scaledFrequency = frequency / MAGIC_FREQ_SCALING_NUMBER;
+				return Math.sin((x - time) * scaledFrequency) * amp + MID_Y;
+			}
+
+			let resyncOffsetX = 0;
+			function sine(time) {
+				const waveLength = X_RANGE / frequency;
+				// The window is the lowest multiple of X_RANGE
+				// that's large enough to fit one wave length
+				const windowLength = getLowestMultiple(X_RANGE, waveLength);
+				const cappedTime = modulo(time, windowLength);
+				if (cappedTime === 0) {
+					resyncOffsetX = modulo(
+						resyncOffsetX + modulo(windowLength, waveLength),
+						waveLength
+					);
+				}
+				const coords = xPoints.map((x) => {
+					const y = getSinePoint({
+						x: x - resyncOffsetX - MID_X,
+						time: cappedTime,
+						frequency,
+						amplitude,
+					});
+					return [x, y];
+				});
+				wavePath.setAttribute('d', getPathFromCoords(coords));
+				if (DEBUG) {
+					windowRect.setAttribute('x', cappedTime + resyncOffsetX);
+					windowRect.setAttribute('width', waveLength);
+					debugReadout.innerHTML = `
+						Frequency: ${round(frequency)}<br/>
+						Amplitude: ${round(amplitude)}<br/>
+						Time: ${round(time)}<br/>
+						Wavelength: ${round(waveLength)}<br/>
+						Window length: ${round(windowLength)}<br/>
+						Capped time: ${round(cappedTime)}<br/>
+						Resync offset: ${round(resyncOffsetX)}<br/>
+					`;
+				}
+			}
+
+			function animateWave() {
+				wavePath.animate([{opacity: 0}, {opacity: 1}], {
+					duration: 1000,
+					easing: 'ease',
+				});
+
+				const animateTime = getAnimator();
+
+				animateTime(sine);
+
+				const animateFrequencyShift = getRandomShiftAnimator(
+					MIN_FREQ,
+					MAX_FREQ
+				);
+
+				animateFrequencyShift((value) => {
+					frequency = value;
+					if (DEBUG) {
+						slider.value = frequency;
+					}
+				});
+
+				const animateAmplitudeShift = getRandomShiftAnimator(0.1, 0.95);
+
+				animateAmplitudeShift((value) => {
+					amplitude = value;
+				});
+			}
+
+			// RENDER BUBBLE
+
+			function createRandomBubble() {
+				const element = createSvgElement('circle');
+
+				const radius = randomInt(BUBBLE_MIN_RADIUS, BUBBLE_MAX_RADIUS);
+				const x = randomInt(0, X_RANGE) - Y_RANGE / 2;
+				const y = Y_RANGE + radius;
+
+				element.setAttribute('cx', x);
+				element.setAttribute('cy', y);
+				element.setAttribute('r', radius);
+				element.setAttribute('class', 'bubble');
+
+				return {
+					element,
+					radius,
+					x,
+					y,
+				};
+			}
+
+			const bubbleContainer = document.getElementById('bubbles');
+
+			function animateBubble(bubble) {
+				const {radius} = bubble;
+				bubbleContainer.insertBefore(bubble.element, null);
+
+				// Use lower opacity and speed for smaller bubbles
+				const getMaxOpacity = interpolate(
+					[BUBBLE_MIN_RADIUS, BUBBLE_MAX_RADIUS],
+					[0.6, 1]
+				);
+				const maxOpacity = round(getMaxOpacity(radius), 0);
+				const getDuration = interpolate(
+					[BUBBLE_MIN_RADIUS, BUBBLE_MAX_RADIUS],
+					[10000, 6000]
+				);
+				const duration = round(getDuration(radius), 0);
+
+				// fade-in
+				bubble.element.animate([{opacity: 0}, {opacity: maxOpacity}], {
+					duration: 800,
+					delay: randomInt(0, duration / 4),
+					easing: 'ease-out',
+					fill: 'backwards',
+				});
+
+				// move
+				const animation = bubble.element.animate(
+					[
+						{transform: 'translate(0, 0)'},
+						{
+							transform: `translate(100px, -${
+								Y_RANGE + radius * 2
+							}px)`,
+						},
+					],
+					{
+						duration,
+						delay: randomInt(0, 100),
+						easing: 'linear',
+					}
+				);
+
+				// fade-out
+				bubble.element.animate([{opacity: maxOpacity}, {opacity: 0}], {
+					duration: 400,
+					delay: duration - 500,
+					easing: 'ease',
+					fill: 'forwards',
+				});
+
+				// remove & re-spawn
+				animation.onfinish = () => {
+					bubbleContainer.removeChild(bubble.element);
+					animateBubble(createRandomBubble());
+				};
+			}
+
+			function animateBubbles() {
+				const bubbles = [
+					createRandomBubble(),
+					createRandomBubble(),
+					createRandomBubble(),
+					createRandomBubble(),
+				];
+				bubbles.forEach((bubble) => {
+					setTimeout(() => {
+						animateBubble(bubble);
+					}, randomInt(0, 1000));
+				});
+			}
+
+			function getRandomShapeCoords() {
+				const shapePoints = [];
+				for (let i = 0; i <= 3; i++) {
+					shapePoints.push(i);
+				}
+				return shapePoints.map(() => [
+					randomInt(0, X_RANGE),
+					randomInt(0, Y_RANGE),
+				]);
+			}
+
+			function createRandomBlurredShape(color, opacity) {
+				const shape = createSvgElement('path');
+				// shape.setAttribute('filter', 'url(#blur)');
+				shape.setAttribute(
+					'd',
+					getPathFromCoords(getRandomShapeCoords())
+				);
+				shape.setAttribute('fill', color);
+				shape.setAttribute('class', 'shape');
+				return shape;
+			}
+
+			const shapeContainer = document.getElementById('shapes');
+
+			function animateShape(color) {
+				const shape = createRandomBlurredShape(color);
+				shapeContainer.insertBefore(shape, null);
+
+				const duration = randomInt(2000, 8000);
+
+				// fade-in & out
+				shape.animate([{opacity: 0}, {opacity: 1}, {opacity: 0}], {
+					duration,
+					easing: 'ease-in',
+					fill: 'backwards',
+				});
+
+				// grow
+				const animation = shape.animate(
+					[
+						{transform: 'scale(1)'},
+						{
+							transform: `scale(${random(
+								1.3,
+								2.2
+							)}) rotate(${randomInt(-45, 45)}deg)`,
+						},
+					],
+					{
+						duration,
+						easing: 'linear',
+						fill: 'forwards',
+					}
+				);
+
+				animation.onfinish = () => {
+					shapeContainer.removeChild(shape);
+					animateShape(color);
+				};
+			}
+
+			function animateShapes() {
+				animateShape('var(--highlight3)');
+				animateShape('var(--highlight4)');
+			}
+
+			if (!hasReducedMotion) {
+				animateWave();
+				animateBubbles();
+				animateShapes();
+			}
+
+			/**
+			 * References:
+			 * https://simplabs.com/blog/2021/01/29/web-animations-intro/
+			 *
+			 * https://www.superhi.com/library/posts/how-to-draw-and-animate-an-svg-wave-using-javascript
+			 *
+			 * https://mattperry.is/writing-code/how-to-write-a-tween
+			 */
+		</script>
+	</body>
+</html>
