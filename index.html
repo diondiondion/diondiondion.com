@@ -79,7 +79,8 @@
 				display: grid;
 				place-items: center;
 				grid-template-rows: 5fr 1fr;
-				padding: 3rem;
+				gap: 1rem;
+				padding: 6vw;
 			}
 
 			a:link {
@@ -98,6 +99,11 @@
 				flex-wrap: wrap;
 				justify-content: center;
 				gap: 0.8rem 0.2rem;
+			}
+
+			.logos svg {
+				max-width: 100%;
+				height: auto;
 			}
 
 			.logo-background {
@@ -159,8 +165,19 @@
 					</filter>
 				</defs>
 			</svg>
-			<svg width="275" height="100" viewBox="0 0 275 100">
-				<title>dion</title>
+			<svg
+				width="275"
+				height="100"
+				viewBox="0 0 275 100"
+				role="img"
+				aria-labelledby="dion-title-1"
+				aria-describedby="dion-desc-1"
+			>
+				<title id="dion-title-1">dion</title>
+				<desc id="dion-desc-1">
+					The letters are filled with an animated sinewave that
+					randomly changes its speed and amplitude
+				</desc>
 				<g clip-path="url(#dion-text)">
 					<rect width="100%" height="100%" class="logo-background" />
 					<rect
@@ -176,15 +193,37 @@
 					<path id="wavePath" d="" fill="none" class="wave" />
 				</g>
 			</svg>
-			<svg width="275" height="100" viewBox="0 0 275 100">
-				<title>dion</title>
+			<svg
+				width="275"
+				height="100"
+				viewBox="0 0 275 100"
+				role="img"
+				aria-labelledby="dion-title-2"
+				aria-describedby="dion-desc-2"
+			>
+				<title id="dion-title-2">dion</title>
+				<desc id="dion-desc-2">
+					The letters are filled with randomly appearing bubbles that
+					rise up and disappear
+				</desc>
 				<g clip-path="url(#dion-text)">
 					<rect width="100%" height="100%" class="logo-background" />
 					<g id="bubbles"></g>
 				</g>
 			</svg>
-			<svg width="275" height="100" viewBox="0 0 275 100">
-				<title>dion</title>
+			<svg
+				width="275"
+				height="100"
+				viewBox="0 0 275 100"
+				role="img"
+				aria-labelledby="dion-title-3"
+				aria-describedby="dion-desc-3"
+			>
+				<title id="dion-title-3">dion</title>
+				<desc id="dion-desc-3">
+					The letters are filled with randomly appearing angular
+					shapes that slowly rotate and fade out
+				</desc>
 				<g clip-path="url(#dion-text)">
 					<rect width="100%" height="100%" class="logo-background" />
 					<g id="shapes"></g>
@@ -192,23 +231,15 @@
 			</svg>
 		</div>
 
-		<div>
+		<main>
 			<a href="mailto:mail@diondiondion.com">Email</a> &middot;
 			<a href="https://github.com/diondiondion">Code</a> &middot;
+			<a href="https://play-duck.com">Duck</a> &middot;
 			<a href="https://medienwirksam.de/artist/dion">Beats</a>
-		</div>
+		</main>
 
 		<script>
 			// SETUP
-
-			/**
-			 * TO DO:
-			 *
-			 * - Dark mode
-			 * - Bubble animation
-			 * - Shade animation
-			 * - Contact info/links
-			 */
 
 			const hasReducedMotion = window.matchMedia(
 				'(prefers-reduced-motion: reduce)'
